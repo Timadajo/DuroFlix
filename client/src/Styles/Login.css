@@ -1,0 +1,66 @@
+.container-login {
+  background-color: #1e1e1e;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(179, 112, 255, 0.2);
+  width: 100%;
+  max-width: 400px;
+  color: rgb(221, 186, 255);
+  font-family: Arial, sans-serif;
+}
+
+.title-login {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: rgb(221, 186, 255);
+  margin-bottom: 24px;
+}
+
+.pagina-total-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 16px 0;
+  border-radius: 8px;
+  border: 1px solid rgb(179, 112, 255);
+  background-color: black;
+  color: rgb(221, 186, 255);
+  outline: none;
+}
+
+.login-input::placeholder {
+  color: rgb(179, 112, 255);
+}
+
+.login-button {
+  background-color: rgb(179, 112, 255);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: rgb(140, 60, 255);
+}
+
+.login-cadastro-link {
+  color: rgb(174, 104, 255);
+  font-size: 90%;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}

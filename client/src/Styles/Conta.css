@@ -1,0 +1,40 @@
+.Conta {
+  color: rgb(68, 0, 107);
+  margin-left: 5%;
+  padding-top: 3%;
+  font-size: 250%;
+}
+
+.logout {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #f70000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ContaTexto {
+  padding-bottom: 40px;
+}
+
+.Usuario {
+  color: white;
+  padding-top: 1%;
+  font-size: 120%;
+  margin-left: 5%;
+}
+
+.nav {
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  transition: 0.2s;
+}
+
+.nav:hover {
+  opacity: 0.8;
+  transition: 0.2s;
+}
