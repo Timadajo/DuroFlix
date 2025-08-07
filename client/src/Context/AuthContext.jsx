@@ -58,5 +58,5 @@ export function AuthProvider({ children }) {
   );
 }
 
-// Garante que o hook useAuth seja exportado corretamente
+
 export const useAuth = () => useContext(AuthContext);

@@ -35,14 +35,14 @@
   padding: 8px 12px;
   color: rgb(179, 112, 255);
   background-color: #000000;
-  border: 0.1px solid rgb(179, 112, 255); /* borda sólida e visível */
-  box-shadow: inset 0 0 0 0.1px rgb(179, 112, 255); /* borda interna */
+  border: 0.1px solid rgb(179, 112, 255);
+  box-shadow: inset 0 0 0 0.1px rgb(179, 112, 255);
   cursor: pointer;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
-  outline: none; /* para evitar contornos padrão */
-  position: relative; /* para o box-shadow funcionar bem */
-  z-index: 1; /* para garantir que fique na frente se precisar */
+  outline: none;
+  position: relative;
+  z-index: 1;
 }
 
 .dropdown-list {

@@ -27,27 +27,30 @@ let AuthService = class AuthService {
         const { email, password, username } = createUserDto;
         const userExists = await this.pool.query('SELECT id FROM "User" WHERE email = $1 OR username = $2', [email, username]);
         if (userExists.rowCount > 0) {
-            throw new common_1.BadRequestException('Usuário com este e-mail ou nome de usuário já existe.');
+            throw new common_1.BadRequestException("Usuário com este e-mail ou nome de usuário já existe.");
         }
         const hashedPassword = await bcrypt.hash(password, 10);
         const result = await this.pool.query('INSERT INTO "User" (email, password, username) VALUES ($1, $2, $3) RETURNING id', [email, hashedPassword, username]);
-        return { id: result.rows[0].id, message: 'Usuário registrado com sucesso!' };
+        return {
+            id: result.rows[0].id,
+            message: "Usuário registrado com sucesso!",
+        };
     }
     async login(loginDto) {
         const { email, password } = loginDto;
         const userResult = await this.pool.query('SELECT id, password, username FROM "User" WHERE email = $1', [email]);
         if (userResult.rowCount === 0) {
-            throw new common_1.UnauthorizedException('E-mail ou senha inválidos.');
+            throw new common_1.UnauthorizedException("E-mail ou senha inválidos.");
         }
         const user = userResult.rows[0];
         const isPasswordMatching = await bcrypt.compare(password, user.password);
         if (!isPasswordMatching) {
-            throw new common_1.UnauthorizedException('E-mail ou senha inválidos.');
+            throw new common_1.UnauthorizedException("E-mail ou senha inválidos.");
         }
         const payload = { id: user.id, username: user.username };
         const accessToken = this.jwtService.sign(payload);
         return {
-            message: 'Login realizado com sucesso!',
+            message: "Login realizado com sucesso!",
             access_token: accessToken,
         };
     }

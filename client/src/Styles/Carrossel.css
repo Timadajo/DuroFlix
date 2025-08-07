@@ -28,14 +28,14 @@
   scroll-behavior: smooth;
   gap: 12px;
   padding: 10px 40px;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; 
 }
 
 .carrossel-filmes::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+  display: none; 
 }
 
-/* Estilo das capas (filmes individuais) */
+
 .filme-card {
   flex: 0 0 auto;
   width: 180px;
@@ -43,15 +43,15 @@
   transition: transform 0.2s ease;
   border: none;
   border-radius: 10px;
-  position: relative; /* ← isso é importante */
-  z-index: 1; /* ← mantém abaixo das setas */
+  position: relative; 
+  z-index: 1; 
 }
 
 .filme-card:hover {
   transform: scale(1.1);
   box-shadow: 0 8px 16px rgba(88, 0, 170, 0.6),
     0 0 6px 2px rgba(74, 0, 194, 0.432);
-  z-index: 1; /* ← não ultrapassa a seta */
+  z-index: 1; 
 }
 .filme-capa {
   width: 100%;
@@ -60,7 +60,7 @@
   border: none;
 }
 
-/* Setas de navegação */
+
 .seta {
   position: absolute;
   top: 50%;
@@ -70,7 +70,7 @@
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 10; /* ← sempre acima de tudo */
+  z-index: 10; 
   padding: 8px 12px;
   border-radius: 50%;
 }

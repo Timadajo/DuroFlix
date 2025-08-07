@@ -45,7 +45,6 @@ export class MoviesController {
     return this.moviesService.searchMovies(query, pageNumber);
   }
 
-  // 👇 Coloque antes de @Get(":id")
   @Get("advanced-find")
   async advancedFind(
     @Query("query") query: string,

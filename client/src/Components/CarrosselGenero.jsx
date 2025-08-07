@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Styles/Carrossel.css";
 
-//const API_BASE = "https://qspg7y-3000.csb.app/movies";
+
 const API_BASE = "http://localhost:3000/movies";
 
 export default function CarrosselGenero() {
@@ -85,38 +85,3 @@ export default function CarrosselGenero() {
   );
 }
 
-// // import { useEffect, useState } from "react";
-// // import CarrosselFilmes from "./CarrosselFilmes";
-
-// // export default function CarrosselGenero() {
-// //   const [filmesPorGenero, setFilmesPorGenero] = useState({});
-
-// //   useEffect(() => {
-// //     fetch("/banco_de_filmes.json")
-// //       .then((res) => res.json())
-// //       .then((data) => {
-// //         const agrupado = agruparFilmesPorGenero(data);
-// //         setFilmesPorGenero(agrupado);
-// //       })
-// //       .catch((err) => console.error("Erro ao carregar filmes:", err));
-// //   }, []);
-
-// //   function agruparFilmesPorGenero(lista) {
-// //     return lista.reduce((acc, filme) => {
-// //       const genero = filme.genero || "Sem Gênero";
-// //       if (!acc[genero]) acc[genero] = [];
-// //       acc[genero].push(filme);
-// //       return acc;
-// //     }, {});
-// //   }
-
-// //   return (
-// //     <div>
-// //       {Object.entries(filmesPorGenero).map(([genero, filmes]) => (
-// //         <div key={genero} className="sessao-genero">
-// //           <CarrosselFilmes titulo={genero} filmes={filmes} />
-// //         </div>
-// //       ))}
-// //     </div>
-// //   );
-// // }

@@ -40,14 +40,6 @@ export default function NavBar() {
         >
           Catalogos
         </NavLink>
-        <NavLink
-          to="/MinhaLista"
-          className={({ isActive }) =>
-            isActive ? "nav-linkL active" : "nav-LeftButton"
-          }
-        >
-          {isLoggedIn ? "Minha Lista" : "Lista"}
-        </NavLink>
       </div>
       <div className="AllRight">
         <div className="cursor">

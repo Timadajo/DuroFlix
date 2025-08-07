@@ -1,5 +1,5 @@
 // src/movies/movies.service.ts
-import { Injectable } from "@nestjs/common";
+import { Injectable, InternalServerErrorException } from "@nestjs/common";
 import axios from "axios";
 
 @Injectable()
@@ -19,7 +19,9 @@ export class MoviesService {
       return response.data.results;
     } catch (error) {
       console.error("Erro ao buscar filmes populares:", error);
-      throw new Error("Falha ao buscar filmes populares do TMDb.");
+      throw new InternalServerErrorException(
+        "Falha ao buscar filmes populares do TMDb."
+      );
     }
   }
 
@@ -36,7 +38,26 @@ export class MoviesService {
       return response.data.results;
     } catch (error) {
       console.error("Erro ao buscar filmes por gênero:", error);
-      throw new Error("Falha ao buscar filmes por gênero do TMDb.");
+      throw new InternalServerErrorException(
+        "Falha ao buscar filmes por gênero do TMDb."
+      );
+    }
+  }
+
+  async searchMovies(query: string, page: number = 1) {
+    try {
+      const response = await axios.get(`${this.tmdbApiUrl}/search/movie`, {
+        params: {
+          api_key: this.tmdbApiKey,
+          language: "pt-BR",
+          page: page,
+          query: query,
+        },
+      });
+      return response.data.results;
+    } catch (error) {
+      console.error("Erro ao buscar filmes por query:", error);
+      throw new InternalServerErrorException("Falha ao buscar filmes do TMDb.");
     }
   }
 
@@ -51,25 +72,12 @@ export class MoviesService {
       return response.data.genres;
     } catch (error) {
       console.error("Erro ao buscar gêneros:", error);
-      throw new Error("Falha ao buscar gêneros do TMDb.");
+      throw new InternalServerErrorException(
+        "Falha ao buscar gêneros do TMDb."
+      );
     }
   }
-  async searchMovies(query: string, page: number = 1) {
-    try {
-      const response = await axios.get(`${this.tmdbApiUrl}/search/movie`, {
-        params: {
-          api_key: this.tmdbApiKey,
-          language: "pt-BR",
-          page: page,
-          query: query,
-        },
-      });
-      return response.data.results;
-    } catch (error) {
-      console.error("Erro ao buscar filmes por query:", error);
-      throw new Error("Falha ao buscar filmes do TMDb.");
-    }
-  }
+
   async findMovieById(id: number) {
     try {
       const [filmeDetalhes, provedores, lancamentos] = await Promise.all([
@@ -113,7 +121,33 @@ export class MoviesService {
       return filmeCompleto;
     } catch (error) {
       console.error(`Erro ao buscar filme com ID ${id}:`, error);
-      throw new Error("Falha ao buscar filme por ID do TMDb.");
+      throw new InternalServerErrorException(
+        "Falha ao buscar filme por ID do TMDb."
+      );
+    }
+  }
+
+  async advancedFind(query: string, genreId: number, page: number = 1) {
+    try {
+      const response = await axios.get(`${this.tmdbApiUrl}/search/movie`, {
+        params: {
+          api_key: this.tmdbApiKey,
+          language: "pt-BR",
+          page: page,
+          query: query,
+        },
+      });
+
+      const filmesFiltrados = response.data.results.filter((filme) =>
+        filme.genre_ids.includes(genreId)
+      );
+
+      return filmesFiltrados;
+    } catch (error) {
+      console.error("Erro na busca avançada de filmes:", error);
+      throw new InternalServerErrorException(
+        "Falha na busca avançada de filmes do TMDb."
+      );
     }
   }
 }

@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFavoritos } from "../Context/FavoritosContext";
 import { useAuth } from "../Context/AuthContext";
-import { addWatchedMovie, removeWatchedMovie, checkIfWatched } from "../apiService";
+import {
+  addWatchedMovie,
+  removeWatchedMovie,
+  checkIfWatched,
+} from "../apiService";
 import "../Styles/Filme.css";
 
 const API_BASE = "http://localhost:3000/movies";
@@ -26,7 +30,6 @@ export default function Filme() {
       .catch((err) => console.error("Erro ao buscar filme:", err));
   }, [id]);
 
-  // Novo useEffect para verificar o status do filme
   useEffect(() => {
     async function getStatus() {
       if (isLoggedIn && filme) {
@@ -46,7 +49,9 @@ export default function Filme() {
   const handleMarcarAssistido = async () => {
     setMessage(null);
     if (!isLoggedIn) {
-      setMessage("Você precisa estar logado para marcar um filme como assistido.");
+      setMessage(
+        "Você precisa estar logado para marcar um filme como assistido."
+      );
       return;
     }
 
@@ -108,20 +113,14 @@ export default function Filme() {
         <h3>Onde Assistir (Comprar): {provedoresCompra}</h3>
         <h3>Sinopse: {filme.overview}</h3>
 
-        <div className="botoes-filme">
-          <button
-            onClick={() => toggleFavorito(filme)}
-            className={isFavorito(filme.id) ? "ativo" : ""}
-          >
-            {isFavorito(filme.id) ? "★ Favorito" : "☆ Favoritar"}
-          </button>
+        {message && <h2 className="status-message">{message}</h2>}
 
+        <div className="botoes-filme">
           <button onClick={handleMarcarAssistido}>
-            {isAssistido ? "✓ Assistido" : "Assistir"}
+            {isAssistido ? "✓ Assistido" : "Assistido"}
           </button>
         </div>
       </div>
-      {message && <p className="status-message">{message}</p>}
     </div>
   );
 }

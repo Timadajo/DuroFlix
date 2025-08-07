@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../Context/AuthContext";
 import { getWatchedMovies } from "../apiService";
-import { Link } from "react-router-dom"; // Importa o Link para navegação
+import { Link } from "react-router-dom";
 import "../Styles/Assistidos.css";
 
 const API_BASE_MOVIES = "http://localhost:3000/movies";
@@ -51,7 +51,9 @@ const Assistidos = () => {
   if (!isLoggedIn) {
     return (
       <div className="pagina-lista">
-        <h2>Você precisa estar logado para ver sua lista de filmes assistidos.</h2>
+        <h2>
+          Você precisa estar logado para ver sua lista de filmes assistidos.
+        </h2>
       </div>
     );
   }
@@ -59,7 +61,7 @@ const Assistidos = () => {
   if (isLoading) {
     return <div className="pagina-lista">Carregando filmes...</div>;
   }
-  
+
   if (error) {
     return <div className="pagina-lista error">{error}</div>;
   }
@@ -77,10 +79,14 @@ const Assistidos = () => {
       <h1 className="Title">Filmes Assistidos</h1>
       <div className="lista-de-filmes">
         {moviesDetails.map((filme) => (
-          <Link to={`/filme/${filme.id}`} key={filme.id} className="cartao-filme">
-            <img 
-              src={`https://image.tmdb.org/t/p/w200${filme.poster_path}`} 
-              alt={filme.title} 
+          <Link
+            to={`/filme/${filme.id}`}
+            key={filme.id}
+            className="cartao-filme"
+          >
+            <img
+              src={`https://image.tmdb.org/t/p/w200${filme.poster_path}`}
+              alt={filme.title}
             />
             <h3>{filme.title}</h3>
           </Link>

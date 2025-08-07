@@ -27,11 +27,3 @@ const CarrosselManual = ({ children }) => {
 };
 
 export default CarrosselManual;
-
-// import "../Styles/Carrossel.css";
-
-// const CarrosselManual = ({ children }) => {
-//   return <div className="scroll-carrossel">{children}</div>;
-// };
-
-// export default CarrosselManual;

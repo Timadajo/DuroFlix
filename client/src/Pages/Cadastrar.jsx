@@ -1,24 +1,23 @@
 // src/components/Cadastrar.jsx
 import React, { useState } from "react";
-import { useAuth } from "../Context/AuthContext.jsx"; // <-- Importa o contexto
+import { useAuth } from "../Context/AuthContext.jsx"; 
 import "../Styles/Cadastrar.css";
 
 const Cadastrar = () => {
-  const { register, error } = useAuth(); // <-- Pega a função de register e o erro
+  const { register, error } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState(""); // <-- Adicionado estado para o nome de usuário
-  const [message, setMessage] = useState(""); // <-- Adicionado estado para mensagem de sucesso
+  const [username, setUsername] = useState(""); 
+  const [message, setMessage] = useState(""); 
 
-  async function handleSubmit(e) { // <-- Agora é uma função assíncrona
+  async function handleSubmit(e) { 
     e.preventDefault();
-    setMessage(""); // Limpa a mensagem anterior
+    setMessage(""); r
 
     try {
       const response = await register(email, username, password);
       setMessage(response.message);
     } catch (err) {
-      // O erro é tratado no contexto, mas você pode adicionar uma lógica aqui se precisar
     }
   }
 

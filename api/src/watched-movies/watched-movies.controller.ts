@@ -1,4 +1,3 @@
-// src/watched-movies/watched-movies.controller.ts
 import { 
   Controller, 
   Post, 
@@ -14,13 +13,12 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { WatchedMoviesService } from './watched-movies.service';
 
-// O DTO para adicionar ou remover um filme
 class MovieIdDto {
   movieId: number;
 }
 
 @Controller('watched-movies')
-@UseGuards(AuthGuard('jwt')) // Protege todas as rotas deste controlador
+@UseGuards(AuthGuard('jwt')) 
 export class WatchedMoviesController {
   constructor(private readonly watchedMoviesService: WatchedMoviesService) {}
 
@@ -46,7 +44,7 @@ export class WatchedMoviesController {
     const movieId = body.movieId;
     return this.watchedMoviesService.removeWatchedMovie(userId, movieId);
   }
-  @Get('status/:movieId') // <-- Adiciona a nova rota com um parâmetro
+  @Get('status/:movieId') 
   async checkIfWatched(@Req() req, @Param('movieId') movieId: string): Promise<{ isWatched: boolean }> {
     const userId = req.user.id;
     const isWatched = await this.watchedMoviesService.checkIfWatched(userId, parseInt(movieId, 10));

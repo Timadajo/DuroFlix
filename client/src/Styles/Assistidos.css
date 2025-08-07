@@ -6,8 +6,13 @@
 .page-container {
   padding: 2rem;
   color: white;
-  background-color: #1c002b; /* fundo escuro padrão */
+  background-color: #1c002b; 
   min-height: 100vh;
+}
+
+.pagina-lista {
+  text-align: center;
+  padding-top: 50px;
 }
 
 .page-container h1 {
@@ -23,7 +28,7 @@
   color: #ccc;
 }
 
-/* Carrossel horizontal com scroll */
+
 .carrossel-container {
   display: flex;
   flex-direction: row;
@@ -43,7 +48,7 @@
   border-radius: 5px;
 }
 
-/* Cada item do carrossel */
+
 .filme-capa {
   flex: 0 0 auto;
   width: 150px;

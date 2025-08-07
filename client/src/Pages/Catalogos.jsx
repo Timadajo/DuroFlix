@@ -21,12 +21,10 @@ export default function Catalogos() {
       .catch((err) => console.error("Erro ao carregar gêneros:", err));
   }, []);
 
-  // Reseta página quando busca ou gênero mudar
   useEffect(() => {
     setPage(1);
   }, [search, selectedGenre]);
 
-  // Carrega filmes sempre que page, search ou selectedGenre mudarem
   useEffect(() => {
     carregarFilmes(page, search, selectedGenre);
   }, [page, search, selectedGenre]);

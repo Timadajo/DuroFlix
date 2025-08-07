@@ -13,15 +13,14 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 
-  margin: 20px 24px; /* aumentou de 16px para 24px nas laterais */
-  box-sizing: border-box; /* garante que border não estoure o tamanho */
+  margin: 20px 24px; 
+  box-sizing: border-box; 
 }
 
 .capa:hover {
   transform: scale(1.1);
   border: 2px solid #3e0077;
-  box-shadow: 0 8px 16px rgba(88, 0, 170, 0.6),
-    /* sombra escura menor */ 0 0 6px 2px rgba(74, 0, 194, 0.432); /* brilho off-white mais discreto */
+  box-shadow: 0 8px 16px rgba(88, 0, 170, 0.6), 0 0 6px 2px rgba(74, 0, 194, 0.432); 
   z-index: 10;
 }
 

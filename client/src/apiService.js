@@ -51,7 +51,7 @@ export const getWatchedMovies = async () => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`, // Envia o token no cabeçalho
+      Authorization: `Bearer ${token}`, 
     },
   });
   return handleResponse(response);
@@ -67,7 +67,7 @@ export const addWatchedMovie = async (movieId) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`, // Envia o token no cabeçalho
+      Authorization: `Bearer ${token}`, 
     },
     body: JSON.stringify({ movieId }),
   });
@@ -85,7 +85,7 @@ export const removeWatchedMovie = async (movieId) => {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`, // Envia o token no cabeçalho
+      Authorization: `Bearer ${token}`, 
     },
     body: JSON.stringify({ movieId }),
   });

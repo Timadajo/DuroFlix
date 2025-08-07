@@ -1,6 +1,6 @@
-import { CreateUserDto } from './dto/create-user.dto';
-import { LoginDto } from './dto/login.dto';
-import { JwtService } from '@nestjs/jwt';
+import { CreateUserDto } from "./dto/create-user.dto";
+import { LoginDto } from "./dto/login.dto";
+import { JwtService } from "@nestjs/jwt";
 export declare class AuthService {
     private readonly jwtService;
     private pool;

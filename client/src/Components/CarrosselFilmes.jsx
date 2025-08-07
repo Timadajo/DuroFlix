@@ -1,61 +1,3 @@
-// import "../Styles/Carrossel.css";
-// import CapaFilme from "./Moldura";
-// import { useRef } from "react";
-
-// const CarrosselFilmes = ({ titulo, filmes }) => {
-//   const scrollRef = useRef(null);
-//   let isDown = false;
-//   let startX;
-//   let scrollLeft;
-
-//   const handleMouseDown = (e) => {
-//     isDown = true;
-//     scrollRef.current.classList.add("active");
-//     startX = e.pageX - scrollRef.current.offsetLeft;
-//     scrollLeft = scrollRef.current.scrollLeft;
-//   };
-
-//   const handleMouseLeave = () => {
-//     isDown = false;
-//     scrollRef.current.classList.remove("active");
-//   };
-
-//   const handleMouseUp = () => {
-//     isDown = false;
-//     scrollRef.current.classList.remove("active");
-//   };
-
-//   const handleMouseMove = (e) => {
-//     if (!isDown) return;
-//     e.preventDefault();
-//     const x = e.pageX - scrollRef.current.offsetLeft;
-//     const walk = (x - startX) * 2; // scroll faster
-//     scrollRef.current.scrollLeft = scrollLeft - walk;
-//   };
-
-//   return (
-//     <div className="carrossel-container">
-//       <h2>{titulo}</h2>
-//       <div
-//         className="scroll-carrossel"
-//         ref={scrollRef}
-//         onMouseDown={handleMouseDown}
-//         onMouseLeave={handleMouseLeave}
-//         onMouseUp={handleMouseUp}
-//         onMouseMove={handleMouseMove}
-//       >
-//         {filmes.map((filme) => (
-//           <div key={filme.id} className="filme-capa">
-//             <CapaFilme imagem={filme.capa} id={filme.id} />
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default CarrosselFilmes;
-
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -63,7 +5,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../Styles/Carrossel.css";
 
-// Setas personalizadas
 const PrevArrow = ({ onClick }) => (
   <div className="custom-arrow prev-arrow" onClick={onClick}>
     <FaChevronLeft />

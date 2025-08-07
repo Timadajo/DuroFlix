@@ -1,11 +1,11 @@
 nav {
   backdrop-filter: blur(10px);
-  padding: 1.5rem 2rem; /* aumentou o espaçamento interno da navbar */
+  padding: 1.5rem 2rem; 
   background-image: linear-gradient(rgb(48, 0, 104), rgba(247, 0, 255, 0));
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.1rem; /* aumenta a fonte dos elementos da navbar */
+  font-size: 1.1rem; 
 }
 
 .nav-LeftButton {
@@ -91,7 +91,7 @@ nav {
 }
 
 .engrenagem {
-  height: 34px; /* aumentou o tamanho do ícone */
+  height: 34px;
 }
 
 .cursor {

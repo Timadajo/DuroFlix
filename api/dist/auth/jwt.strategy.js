@@ -17,9 +17,9 @@ const config_1 = require("@nestjs/config");
 let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(passport_jwt_1.Strategy) {
     configService;
     constructor(configService) {
-        const jwtSecret = configService.get('JWT_SECRET');
+        const jwtSecret = configService.get("JWT_SECRET");
         if (!jwtSecret) {
-            throw new common_1.UnauthorizedException('JWT_SECRET não está configurado.');
+            throw new common_1.UnauthorizedException("JWT_SECRET não está configurado.");
         }
         super({
             jwtFromRequest: passport_jwt_1.ExtractJwt.fromAuthHeaderAsBearerToken(),
